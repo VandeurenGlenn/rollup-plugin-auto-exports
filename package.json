@@ -2,13 +2,18 @@
   "name": "rollup-plugin-auto-exports",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/node": "^20.4.4",
     "rollup": "^3.26.3",
     "tslib": "^2.6.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./exports/auto-exports.js",
+      "types": "./exports/auto-exports.d.ts"
+    }
   },
   "scripts": {
     "build": "rollup -c",
