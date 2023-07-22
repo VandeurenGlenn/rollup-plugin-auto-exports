@@ -1,0 +1,23 @@
+{
+  "name": "rollup-plugin-auto-exports",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/node": "^20.4.4",
+    "rollup": "^3.26.3",
+    "tslib": "^2.6.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "globby": "^13.2.2"
+  }
+}
