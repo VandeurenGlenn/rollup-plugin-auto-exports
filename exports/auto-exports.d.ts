@@ -1,8 +1,8 @@
 declare type AutoExportOptions = {
-    defaultExports: Object;
-    exportsDir: String;
+    defaultExports?: Object;
+    exportsDir?: String;
 };
-declare const autoExports: (options: AutoExportOptions) => {
+declare const autoExports: (options?: AutoExportOptions) => {
     name: string;
     writeBundle: (bundleOptions: any) => Promise<void>;
 };

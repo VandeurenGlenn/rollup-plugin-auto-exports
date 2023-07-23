@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { globby } from 'globby';
 import { parse } from 'path';
 
-const autoExports = (options) => ({
+const autoExports = (options = {}) => ({
     name: 'rollup-plugin-auto-exports',
     writeBundle: async (bundleOptions) => {
         const packageExports = options.defaultExports || {};

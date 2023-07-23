@@ -3,11 +3,11 @@ import { globby } from 'globby'
 import { parse } from 'path'
 
 declare type AutoExportOptions = {
-  defaultExports: Object,
-  exportsDir: String
+  defaultExports?: Object,
+  exportsDir?: String
 }
 
-const autoExports = (options: AutoExportOptions) => ({
+const autoExports = (options: AutoExportOptions = {}) => ({
   name: 'rollup-plugin-auto-exports',
   writeBundle: async (bundleOptions) => {
     const packageExports = options.defaultExports || {}
