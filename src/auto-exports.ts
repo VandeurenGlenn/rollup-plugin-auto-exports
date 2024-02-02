@@ -32,11 +32,13 @@ const autoExports = (options: AutoExportOptions = {}) => ({
       const isDeclaration = parsed.name.endsWith('.d') && parsed.ext === '.ts'
 
       const name = isDeclaration ? `${parsed.name.replace('.d', '')}` : `${parsed.name}`
-      packageExports[name] = {
-        import: `./${exportsDir}/${isDeclaration ? `${name}${parsed.ext}` : `${name}${parsed.ext}`}`
+      const exportName = sorted.length === 1 ? '.' : name
+
+      packageExports[exportName] = {
+        import: `./${exportsDir}/${isDeclaration ? `${name}.js` : `${name}${parsed.ext}`}`
       }
       if (isDeclaration) {
-        packageExports[name].types = `./${path}`
+        packageExports[exportName].types = `./${path}`
       }
     }
 

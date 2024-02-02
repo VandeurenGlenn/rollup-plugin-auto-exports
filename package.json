@@ -10,8 +10,8 @@
     "tslib": "^2.6.0"
   },
   "exports": {
-    "auto-exports": {
-      "import": "./exports/auto-exports.ts",
+    ".": {
+      "import": "./exports/auto-exports.js",
       "types": "./exports/auto-exports.d.ts"
     }
   },
