@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'fs/promises'
 import { globby } from 'globby'
-import { parse } from 'path'
+import { parse, sep } from 'path'
 
 declare type AutoExportOptions = {
   defaultExports?: Object
@@ -32,7 +32,8 @@ const autoExports = (options: AutoExportOptions = {}) => ({
       const isDeclaration = parsed.name.endsWith('.d') && parsed.ext === '.ts'
 
       const name = isDeclaration ? `${parsed.name.replace('.d', '')}` : `${parsed.name}`
-      const exportName = sorted.length === 1 ? '.' : name
+      const exportName =
+        sorted.length === 1 ? '.' : parsed.dir.split(sep).length === 1 && name === 'index' ? '.' : `./${name}`
 
       packageExports[exportName] = {
         import: `./${exportsDir}/${isDeclaration ? `${name}.js` : `${name}${parsed.ext}`}`
