@@ -38,8 +38,12 @@ const autoExports = (options: AutoExportOptions = {}) => ({
       packageExports[exportName] = {
         import: `./${exportsDir}/${isDeclaration ? `${name}.js` : `${name}${parsed.ext}`}`
       }
+      packageExports[`./${name}.js`] = {
+        import: `./${exportsDir}/${isDeclaration ? `${name}.js` : `${name}${parsed.ext}`}`
+      }
       if (isDeclaration) {
         packageExports[exportName].types = `./${path}`
+        packageExports[`./${name}.js`].types = `./${path}`
       }
     }
 

@@ -26,6 +26,10 @@
 		".": {
 			"import": "./exports/auto-exports.js",
 			"types": "./exports/auto-exports.d.ts"
+		},
+		"./auto-exports.js": {
+			"import": "./exports/auto-exports.js",
+			"types": "./exports/auto-exports.d.ts"
 		}
 	}
 }
